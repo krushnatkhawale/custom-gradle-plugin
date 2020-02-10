@@ -1,23 +1,33 @@
 plugins {
-	id 'java'
-	id 'maven-publish'
+    id 'java'
+    id 'groovy'
+    id 'maven-publish'
 }
 
 group = 'com.example'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	compile gradleApi()
+    compile gradleApi()
+    testCompile gradleTestKit()
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
+
+    testCompile 'org.assertj:assertj-core:3.15.0'
 }
 publishing {
-	publications {
-		maven(MavenPublication) {
-			from components.java
-		}
-	}
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
 }
