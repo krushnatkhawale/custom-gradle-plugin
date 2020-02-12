@@ -8,7 +8,6 @@ public class DependencyCollectionTask extends DefaultTask {
 
     private Project project = getProject();
 
-
     @TaskAction
     void taskAction() {
         try {
